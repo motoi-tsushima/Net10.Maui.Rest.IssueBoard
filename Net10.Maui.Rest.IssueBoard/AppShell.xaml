@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Net10.Maui.Rest.IssueBoard.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Net10.Maui.Rest.IssueBoard.Views"
+    Title="課題掲示板">
+
+    <ShellContent
+        Title="課題一覧"
+        ContentTemplate="{DataTemplate views:IssueListPage}"
+        Route="IssueListPage" />
+
+</Shell>

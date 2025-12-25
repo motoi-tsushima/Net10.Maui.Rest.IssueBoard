@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Net10.Maui.Rest.IssueBoard.Views.IssueDeletePage"
+             Title="課題削除確認">
+    
+    <Grid RowDefinitions="Auto,*,Auto" Padding="10">
+        
+        <!-- 確認メッセージ -->
+        <Frame Grid.Row="0" 
+               BackgroundColor="LightCoral" 
+               Padding="15" 
+               Margin="0,0,0,10">
+            <Label Text="この課題を削除してもよろしいですか？" 
+                   FontSize="18" 
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   TextColor="White"/>
+        </Frame>
+
+        <!-- 詳細表示エリア（スクロール可能） -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="10">
+                
+                <Grid ColumnDefinitions="120,*">
+                    <Label Grid.Column="0" Text="記入者氏名:" FontAttributes="Bold" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" x:Name="AuthorNameLabel" VerticalOptions="Center"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="120,*">
+                    <Label Grid.Column="0" Text="登録日時:" FontAttributes="Bold" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" x:Name="CreatedAtLabel" VerticalOptions="Center"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="120,*">
+                    <Label Grid.Column="0" Text="カテゴリ名:" FontAttributes="Bold" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" x:Name="CategoryLabel" VerticalOptions="Center"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="120,*">
+                    <Label Grid.Column="0" Text="課題タイトル:" FontAttributes="Bold" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" x:Name="TitleLabel" FontAttributes="Bold" FontSize="18" VerticalOptions="Center"/>
+                </Grid>
+
+                <Label Text="課題の文面:" FontAttributes="Bold"/>
+                <Frame BorderColor="LightGray" Padding="10" MinimumHeightRequest="100" MaximumHeightRequest="200">
+                    <ScrollView>
+                        <Label x:Name="DescriptionLabel"/>
+                    </ScrollView>
+                </Frame>
+
+                <Grid ColumnDefinitions="120,*">
+                    <Label Grid.Column="0" Text="現在の状況:" FontAttributes="Bold" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" x:Name="StatusLabel" VerticalOptions="Center"/>
+                </Grid>
+
+                <Label Text="解決の文面:" FontAttributes="Bold"/>
+                <Frame BorderColor="LightGray" Padding="10" MinimumHeightRequest="100" MaximumHeightRequest="200">
+                    <ScrollView>
+                        <Label x:Name="ResolutionLabel"/>
+                    </ScrollView>
+                </Frame>
+
+                <Grid ColumnDefinitions="120,*">
+                    <Label Grid.Column="0" Text="解決担当者名:" FontAttributes="Bold" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" x:Name="ResolverNameLabel" VerticalOptions="Center"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="120,*">
+                    <Label Grid.Column="0" Text="最終結果日時:" FontAttributes="Bold" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" x:Name="ResolvedAtLabel" VerticalOptions="Center"/>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ボタン -->
+        <Grid Grid.Row="2" 
+              ColumnDefinitions="*,*" 
+              ColumnSpacing="10"
+              Margin="0,10,0,0">
+            <Button Grid.Column="0" 
+                    Text="削除" 
+                    Clicked="OnDeleteClicked"
+                    BackgroundColor="Red"
+                    TextColor="White"/>
+            <Button Grid.Column="1" Text="戻る" Clicked="OnBackClicked"/>
+        </Grid>
+    </Grid>
+</ContentPage>

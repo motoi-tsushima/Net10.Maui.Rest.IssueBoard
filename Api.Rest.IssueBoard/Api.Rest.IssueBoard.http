@@ -1,0 +1,6 @@
+@Api.Rest.IssueBoard_HostAddress = http://localhost:5057
+
+GET {{Api.Rest.IssueBoard_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

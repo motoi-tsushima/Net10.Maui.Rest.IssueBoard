@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Net10.Maui.Rest.IssueBoard.Views.IssueCreatePage"
+             Title="課題新規登録">
+    
+    <Grid RowDefinitions="*,Auto" Padding="10">
+        
+        <!-- 入力エリア（スクロール可能） -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="10">
+                
+                <Label Text="記入者氏名:" FontAttributes="Bold"/>
+                <Entry x:Name="AuthorNameEntry" Placeholder="氏名を入力" MaxLength="50"/>
+                <Label x:Name="AuthorNameErrorLabel" TextColor="Red" IsVisible="False"/>
+
+                <Grid ColumnDefinitions="120,*">
+                    <Label Grid.Column="0" Text="登録日時:" FontAttributes="Bold" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" Text="（自動設定）" VerticalOptions="Center"/>
+                </Grid>
+
+                <Label Text="カテゴリ名:" FontAttributes="Bold"/>
+                <Entry x:Name="CategoryEntry" Placeholder="カテゴリを入力（任意）" MaxLength="30"/>
+
+                <Label Text="課題タイトル:" FontAttributes="Bold"/>
+                <Entry x:Name="TitleEntry" Placeholder="課題タイトルを入力" MaxLength="100"/>
+                <Label x:Name="TitleErrorLabel" TextColor="Red" IsVisible="False"/>
+
+                <Label Text="課題の文面:" FontAttributes="Bold"/>
+                <Editor x:Name="DescriptionEditor" 
+                        Placeholder="課題の文面を入力" 
+                        MinimumHeightRequest="150" 
+                        MaximumHeightRequest="300"
+                        AutoSize="TextChanges"
+                        MaxLength="2000"/>
+                <Label x:Name="DescriptionErrorLabel" TextColor="Red" IsVisible="False"/>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ボタン -->
+        <Grid Grid.Row="1" 
+              ColumnDefinitions="*,*" 
+              ColumnSpacing="10"
+              Margin="0,10,0,0">
+            <Button Grid.Column="0" Text="登録" Clicked="OnCreateClicked"/>
+            <Button Grid.Column="1" Text="戻る" Clicked="OnBackClicked"/>
+        </Grid>
+    </Grid>
+</ContentPage>
