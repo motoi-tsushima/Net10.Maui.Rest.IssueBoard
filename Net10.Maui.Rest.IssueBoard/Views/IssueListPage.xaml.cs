@@ -43,7 +43,11 @@ public partial class IssueListPage : ContentPage
         }
         catch (Exception ex)
         {
-            await DisplayAlert("エラー", $"課題の読み込みに失敗しました: {ex.Message}", "OK");
+            // 詳細なエラー情報を表示
+            var innerMessage = ex.InnerException?.Message ?? "なし";
+            var fullMessage = $"エラー: {ex.Message}\n内部例外: {innerMessage}\n\nAPIサーバーに接続できない可能性があります。";
+            
+            await this.DisplayAlert("エラー", fullMessage, "OK");
         }
         finally
         {
@@ -79,7 +83,7 @@ public partial class IssueListPage : ContentPage
 
     private async void OnExitClicked(object sender, EventArgs e)
     {
-        bool confirm = await DisplayAlert("確認", "アプリケーションを終了しますか?", "はい", "いいえ");
+        bool confirm = await this.DisplayAlert("確認", "アプリケーションを終了しますか?", "はい", "いいえ");
         if (confirm)
         {
             Application.Current?.Quit();

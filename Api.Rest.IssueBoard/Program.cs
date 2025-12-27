@@ -40,7 +40,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors();
 
-app.UseHttpsRedirection();
+// 開発環境ではHTTPSリダイレクトを無効化
+// モバイルアプリからHTTPで接続できるようにする
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseAuthorization();
 
