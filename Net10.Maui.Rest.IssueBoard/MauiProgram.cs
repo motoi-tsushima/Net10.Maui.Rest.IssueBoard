@@ -33,7 +33,7 @@ namespace Net10.Maui.Rest.IssueBoard
                 string baseUrl;
 #if ANDROID
                 // Androidエミュレータからホストマシンにアクセスする場合は10.0.2.2を使用
-                baseUrl = "http://10.0.2.2:5000";
+                baseUrl = "http://10.0.2.2:5000"; 
 #elif IOS
                 // iOSシミュレーター（Mac上で動作）からWindowsのAPIサーバーにアクセス
                 baseUrl = "http://192.168.1.9:5000";
